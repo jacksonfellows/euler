@@ -31,18 +31,14 @@ def multiples_under_limit(num, limit):
 		i += 1
 	return total
 
-def factors(num):
-	factors = []
-	for i in range(2, num):
-		if num % i == 0:
-			factors.append(i)
-	return factors
+def is_factor(num, i):
+	if i != 1 and i != 0 and num%i == 0:
+		return True
+	else:
+		return False
 
 def is_prime(num):	
-	if factors(num) == []:
-		return True
-	else: return False
-
-def largest(list):
-	list.sort()
-	return list[-1]
+	for i in range(round(num/2+1), -1, -1):
+		if is_factor(num, i):
+			return False
+	return True
