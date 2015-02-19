@@ -32,13 +32,29 @@ def multiples_under_limit(num, limit):
 	return total
 
 def is_factor(num, i):
-	if i != 1 and i != 0 and num%i == 0:
+	if i != 1 and i != 0 and num % i == 0:
 		return True
 	else:
 		return False
 
 def is_prime(num):	
-	for i in range(round(num/2+1), -1, -1):
+	for i in range(round(num/2), -1, -1):
 		if is_factor(num, i):
 			return False
 	return True
+
+def nth_prime(num):
+	primes = [2]
+	i = 3
+
+	while len(primes) < num:
+		for prime in primes:
+			if i % prime == 0:
+				i += 1
+				break
+			elif prime > i / 2:
+				primes.append(i)
+				i += 1
+				break
+
+	return i - 1
