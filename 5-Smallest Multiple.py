@@ -1,5 +1,7 @@
 #megatheriumNinja
-import Functions as functions
+import Functions as functions, datetime
+
+start_time = datetime.datetime.now()
 
 i = 1
 found_num = False
@@ -14,3 +16,9 @@ while found_num == False:
         i += 1
 
 print(num)
+
+end_time = datetime.datetime.now()
+
+total_time = end_time - start_time
+
+print("It took " + str(total_time))
