@@ -17,7 +17,6 @@ while len(num) >= 14:
 
 ans = max(l)
 
-print(l)
 print(ans)
 
 end_time = datetime.datetime.now()
