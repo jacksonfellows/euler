@@ -58,3 +58,21 @@ def nth_prime(num):
 				break
 
 	return i - 1
+
+def sum_of_primes_under(num):
+	primes = [2]
+	i = 3
+
+	while primes[-1] < num:
+		for prime in primes:
+			if i % prime == 0:
+				i += 1
+				break
+			elif prime > i / 2:
+				primes.append(i)
+				i += 1
+				break
+
+
+	del primes[-1]
+	return sum_up_list(primes)
