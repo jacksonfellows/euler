@@ -76,3 +76,33 @@ def sum_of_primes_under(num):
 
 	del primes[-1]
 	return sum_up_list(primes)
+
+def find_vericals(l, length, slices):
+	for i in range(0, length):
+		l = []
+		for j in slices:
+			l.append(j[i])
+		slices.append(l)
+
+	return slices
+
+def find_diagnols(l, length, slices):
+	for i in range(0, length):
+		l = []
+		n = i
+		for j in slices:
+			if n == 20: break
+			l.append(j[n])
+			n += 1
+		slices.append(l)
+
+	for i in range(length-1, -1, -1):
+		l = []
+		n = i
+		for j in slices:
+			if n == -1: break
+			l.append(j[n])
+			n -= 1
+		slices.append(l)
+
+	return slices
