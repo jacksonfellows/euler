@@ -1,8 +1,6 @@
 #megatheriumNinja
 import Functions as functions, datetime
 
-start_time = datetime.datetime.now()
-
 list = []
 
 for i in range(1000, -1, -1):
@@ -13,9 +11,3 @@ for i in range(1000, -1, -1):
 
 list.sort()
 print(list[-1])
-
-end_time  = datetime.datetime.now()
-
-total_time = end_time - start_time
-
-print("It took " + str(total_time))
