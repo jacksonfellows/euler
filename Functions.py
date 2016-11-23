@@ -106,3 +106,10 @@ def find_diagnols(l, length, slices):
 		slices.append(l)
 
 	return slices
+
+def divisors(num):
+	d = []
+	for i in range(1, num+1):
+		if num % i == 0:
+			d.append(i)
+	return(d)
