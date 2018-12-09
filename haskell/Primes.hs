@@ -3,6 +3,7 @@ module Primes
     , primeFactors
     ) where
 
+primes [] = []
 primes (x:xs) = x : (primes (filter (\n -> n `mod` x /= 0) xs))
 
 primeFactors 1 = []
