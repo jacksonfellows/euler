@@ -1,3 +1,8 @@
+# ignore files without extensions
+*
+!/**/
+!*.*
+
 # Compiled source #
 ###################
 *.pyc
@@ -13,3 +18,7 @@ ehthumbs.db
 Thumbs.db
 __pycache__
 *.swp
+
+# haskell
+*.hi
+*.o
