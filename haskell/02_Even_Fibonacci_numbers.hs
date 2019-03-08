@@ -1,4 +1,4 @@
-fibs xs = rest ++ fibs [b,a,(a + b)]
-    where (a:b:rest) = reverse xs
+fibs = 1 : 1 : zipWith (+) fibs (tail fibs)
+prob2 = sum $ filter even $ takeWhile (<4000000) fibs
 
-main = print $ sum $ filter (\n -> n `mod` 2 == 0) $ takeWhile (<4000000) $ fibs [1,1]
+main = print prob2
