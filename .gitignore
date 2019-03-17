@@ -19,6 +19,10 @@ Thumbs.db
 __pycache__
 *.swp
 
-# haskell
+# Haskell
 *.hi
 *.o
+
+# F#
+*.exe
+*.dll
