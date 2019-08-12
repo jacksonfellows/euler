@@ -1,0 +1,4 @@
+py:python3
+fs:fsharpi --exec --quiet
+hs:runhaskell
+rkt:racket
