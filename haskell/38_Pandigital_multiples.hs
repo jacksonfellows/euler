@@ -11,4 +11,4 @@ pandigitals :: [String]
 pandigitals = permutations $ concatMap show [1..9]
 
 main :: IO ()
-main = print $ maximum $ filter isConcatProd pandigitals
+main = putStrLn $ maximum $ filter isConcatProd pandigitals

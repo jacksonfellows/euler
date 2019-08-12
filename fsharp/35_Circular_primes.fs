@@ -35,7 +35,5 @@ let numCircs =
     |> List.filter isCirc
     |> List.length
 
-[<EntryPoint>]
-let main argv =
-    numCircs |> printf "there are %d circular primes below one million\n"
-    0
+printf "number of circular primes below one million:\n"
+numCircs |> printf "%d\n"

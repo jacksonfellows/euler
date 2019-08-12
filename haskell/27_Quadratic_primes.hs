@@ -16,5 +16,5 @@ tryAll = do
     where go n a b = if isPrime (evalQuad n a b) then go (n+1) a b
                      else (n,a,b)
 
-main = putStrLn $ printf "got a prime sequence %d long with a=%d and b=%d.\na*b = %d" n a b (a*b)
+main = putStrLn $ printf "got a prime sequence %d long with a=%d and b=%d.\n%d" n a b (a*b)
     where (n,a,b) = maximum tryAll

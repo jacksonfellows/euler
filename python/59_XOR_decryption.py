@@ -51,4 +51,5 @@ for a in letters:
 print('decrypted the message:')
 print(message)
 print()
-print('the sum of the ASCII values is: %d' % sum(map(ord,list(message))))
+print('the sum of the ASCII values is:')
+print(sum(map(ord,list(message))))

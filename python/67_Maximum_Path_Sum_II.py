@@ -1,4 +1,4 @@
-file = open('67-Maximum Path Sum II Input.txt', 'r')
+file = open('../67-Maximum Path Sum II Input.txt', 'r')
 
 l = [[int(i) for i in line.split(' ')] for line in file]
 

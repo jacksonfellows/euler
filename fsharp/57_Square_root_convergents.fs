@@ -33,8 +33,5 @@ let numMoreNumeratorDigits =
     |> List.filter (fun r -> numDigits r.n > numDigits r.d)
     |> List.length
 
-[<EntryPoint>]
-let main argv =
-    numMoreNumeratorDigits
-    |> printf "in the first 1000 expansions of the square root of 2, there are %d cases where the numerator has more digits than the denominator\n"
-    0
+printf "in the first 1000 expansions of the square root of 2, number of cases where the numerator has more digits than the denominator:\n"
+numMoreNumeratorDigits |> printf "%d\n"

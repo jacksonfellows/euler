@@ -1,15 +1,9 @@
-file = open('13-Large Sum Input.txt', 'r')
+with open('../13-Large Sum Input.txt', 'r') as f:
+    lines = f.readlines()
 
 ans = 0
 
-for line in file:
-	print('   %i' % int(line))
-	ans += int(line)
+for line in lines:
+    ans += int(line)
 
-print(' + ',end='')
-for i in range(0,50):
-	print('-',end='')
-
-print('\n')
-
-print(' %i' % ans)
+print(str(ans)[:10])

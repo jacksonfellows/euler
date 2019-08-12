@@ -105,8 +105,9 @@ def words(n):
 count = 0
 
 for i in range(1,1001):
-	print(words(i))
-	print(len(words(i)))
+	# print(words(i))
+	# print(len(words(i)))
 	count += len(words(i))
 
-print('The number of letters used in all the numbers written out from 1 to 1000 is %i.' % count)
+print('The number of letters used in all the numbers written out from 1 to 1000 is:')
+print(count)

@@ -6,7 +6,7 @@ def paths(n):
 	for i in range(1,n+1):
 		f2 *= i
 
-	p = f1/(f2**2)
+	p = f1 // (f2**2)
 
 	return(p)
 
