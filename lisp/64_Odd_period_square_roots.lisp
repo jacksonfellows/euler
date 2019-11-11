@@ -1,0 +1,20 @@
+(defun next-frac (rt plus denom)
+  (let* ((num-factor denom)
+	 (m (floor (/ (+ (sqrt rt) plus) denom)))
+	 (bottom-plus (- plus (* m num-factor)))
+	 (top-plus (- bottom-plus)))
+    (values top-plus (/ (+ rt (* bottom-plus top-plus)) num-factor))))
+
+(defun cont-frac-period (rt &optional (i 0) (plus 0) (denom 1) (first-m (isqrt rt)))
+  (if (and (= 1 denom) (= first-m plus))
+      i
+      (multiple-value-bind (new-plus new-denom) (next-frac rt plus denom)
+	(cont-frac-period rt (1+ i) new-plus new-denom first-m))))
+
+(defun p64 ()
+  (let ((count 0))
+    (dotimes (n 10000)
+      (let ((period (ignore-errors (cont-frac-period (1+ n)))))
+	(when (and period (oddp period))
+	  (incf count))))
+    count))
