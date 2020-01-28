@@ -26,3 +26,9 @@ __pycache__
 # F#
 *.exe
 *.dll
+
+# Common Lisp
+*.fasl
+
+# Emacs
+*~
