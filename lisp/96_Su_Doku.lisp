@@ -17,7 +17,7 @@
 	      (push (read-board f) boards)))
     (nreverse boards)))
 
-(defparameter *boards* (read-boards "./p096_sudoku.txt"))
+(defparameter *boards* (read-boards "../p096_sudoku.txt"))
 
 (defmacro collecting (&body forms)
   (let ((list (gensym)))
