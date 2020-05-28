@@ -1,5 +1,5 @@
 # megatheriumNinja
-import Functions as functions, datetime
+import Functions as functions
 
 total3 = functions.multiples_under_limit(3, 1000)
 total5 = functions.multiples_under_limit(5, 1000)
