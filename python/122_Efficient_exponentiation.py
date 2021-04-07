@@ -16,7 +16,7 @@ def m(k):
                     mins = [x]
                 elif len_x == min_len:
                     mins.append(x)
-    return tuple(frozenset({k} | min_) for min_ in mins)
+    return tuple(frozenset((k,)) | min_ for min_ in mins)
 
 def p122():
     return sum(len(m(k)[0]) for k in range(1,201))
