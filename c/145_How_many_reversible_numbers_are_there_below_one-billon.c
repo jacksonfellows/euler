@@ -1,38 +1,35 @@
 #include <stdio.h>
+#include <stdlib.h>
 
-int reverse(int n)
-{
-  int r, d;
+long reverse(long n) {
+  long r, d;
   r = 0;
   while (n > 0) {
     d = n % 10;
     n /= 10;
-    r = r*10 + d;
+    r = r * 10 + d;
   }
   return r;
 }
 
-int all_odd(int n) {
-  int d;
+long all_odd(long n) {
+  long d;
   while (n > 0) {
-    d = n % 10;
-    n /= 10;
-    if (d % 2 == 0)
+    if (n % 2 == 0)
       return 0;
+    n /= 10;
   }
   return 1;
 }
 
-int reversible(int n) {
-  return n % 10 == 0 ? 0 : all_odd(n + reverse(n));
-}
+int reversible(long n) { return n % 10 == 0 ? 0 : all_odd(n + reverse(n)); }
 
-int main()
-{
-  int n = 0;
-  for (int i = 0; i < 1000000000; ++i) {
+int main(int argc, char **argv) {
+  long n = 0;
+  long l = strtol(argv[1], NULL, 10);
+  for (long i = 0; i < l; ++i) {
     if (reversible(i))
       ++n;
   }
-  printf("%d\n", n);
+  printf("%ld\n", n);
 }
