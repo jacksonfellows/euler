@@ -1,32 +1,44 @@
 #include <math.h>
 #include <stdio.h>
-#include <stdlib.h>
+
+#define N 10000000
+
+int divs[N + 1];
 
 long n_divs(long n) {
-  long c = 0;
-  long isqrt = (long)sqrt(n);
-  long i;
-  for (i = 1; i <= isqrt; i++) {
-    if (n % i == 0)
-      c += 2;
+  int c = 0;
+  if (n % 2 == 0) {
+    do {
+      n /= 2;
+      ++c;
+    } while (n % 2 == 0);
+    return (c + 1) * divs[n];
   }
-  if (n % (i - 1) == 0 && n / (i - 1) == (i - 1))
-    --c;
-  return c;
+  long isqrt = (long)sqrt(n);
+  for (long i = 3; i <= isqrt; i += 2) {
+    if (n % i == 0) {
+      do {
+        n /= i;
+        ++c;
+      } while (n % i == 0);
+      return (c + 1) * divs[n];
+    }
+  }
+  return 2;
 }
 
 int main(int argc, char **argv) {
-  long l = strtol(argv[1], NULL, 10);
-  long past, curr;
-  past = 1;
-  long n = 0;
-  for (long i = 2; i < l; i++) {
-    curr = n_divs(i);
-    if (curr == past) {
-      ++n;
-    }
-    past = curr;
+  divs[1] = 1;
+  divs[2] = 2;
+
+  long count = 0;
+  long d;
+  for (long n = 3; n <= N; ++n) {
+    d = n_divs(n);
+    if (d == divs[n - 1])
+      ++count;
+    divs[n] = d;
   }
-  printf("%ld\n", n);
-  return 0;
+
+  printf("%ld\n", count);
 }
