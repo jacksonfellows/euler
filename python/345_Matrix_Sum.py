@@ -1,3 +1,6 @@
+from functools import cache
+
+
 def read_m(s):
     return tuple(tuple(int(n) for n in l.split()) for l in s.strip().split("\n"))
 
@@ -27,21 +30,17 @@ m2 = read_m("""
 813 883 451 509 615  77 281 613 459 205 380 274 302  35 805
 """)
 
-def msum(m):
-    global maxsum
+@cache
+def rec(rows, cols):
+    if len(rows) == 1:
+        return m2[rows[0]][cols[0]]
     maxsum = 0
+    for ri,r in enumerate(rows):
+        rows_ = rows[:ri] + rows[ri+1:]
+        for ci,c in enumerate(cols):
+            cols_ = cols[:ci] + cols[ci+1:]
+            maxsum = max(maxsum, m2[r][c] + rec(rows_, cols_))
+        return maxsum
 
-    def rec(m, tot):
-        global maxsum
-        if len(m) == 1:
-            sum_ = m[0][0] + tot
-            if sum_ > maxsum:
-                maxsum = sum_
-                print(maxsum)
-            return
-        rest = m[1:]
-        s = sorted(list(enumerate(m[0])), key=lambda x: x[1], reverse=True)
-        for i, v in s[:4]:
-            rec([[x for j, x in enumerate(r) if i != j] for r in rest], tot + v)
-
-    rec(m, 0)
+def p345():
+    return rec(tuple(range(len(m2))), tuple(range(len(m2))))
